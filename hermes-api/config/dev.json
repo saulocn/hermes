@@ -1,0 +1,23 @@
+{
+    "dev": {
+      "name": "Hermes API",
+      "port": 3000,
+      "mode": "development",
+      "protocol": "http",
+      "serverUrl": "localhost",
+      "serverUrlWebUrlLink": "localhost:3000/",
+      "database": {
+        "host": "localhost",
+        "port": "27017",
+        "user": "",
+        "password": "",
+        "database": ""
+      },
+      "email": {
+        "host": "",
+        "port": "",
+        "username": "",
+        "password": ""
+      }
+    }
+  }
