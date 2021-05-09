@@ -13,6 +13,12 @@
         "password": "",
         "database": ""
       },
+      "pulsar": {
+        "host": "localhost",
+        "port": "6650",
+        "topic": "message-topic",
+        "consumer": "nodejs-hermes-sub"
+      },
       "email": {
         "host": "",
         "port": "",

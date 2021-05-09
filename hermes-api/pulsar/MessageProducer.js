@@ -1,10 +1,10 @@
-const client = require('./PulsarClient').client;
-const TOPIC_NAME = 'message-topic'
-
+const mode = process.env.NODE_ENV || 'dev'
+const config = require(`../config/${mode}.json`)[mode]
+const client = require('./PulsarClient').client
 
 const sendMessage = async (message) => {
     const producer = await client.createProducer({
-        topic: `persistent://public/default/${TOPIC_NAME}`,
+        topic: `persistent://public/default/${config.pulsar.topic}`,
         sendTimeoutMs: 30000,
         batchingEnabled: true,
     });
