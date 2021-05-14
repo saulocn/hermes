@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "hermes-api"
+		},
+		{
+			"path": "hermes-consumer"
+		},
+		{
+			"path": "pulsar"
+		}
+	],
+	"settings": {}
+}

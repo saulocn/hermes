@@ -4,7 +4,7 @@ const client = require('./PulsarClient').client
 
 const consumer = async () => {
     await client.subscribe({
-        topic: config.pulsar.topic,
+        topic: `${config.pulsar.topic}`,
         subscription: config.pulsar.consumer,
         subscriptionType: 'Exclusive',
         listener: (msg, msgConsumer) => {
