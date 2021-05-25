@@ -2,5 +2,17 @@ POST http://localhost:3000/messages
 Content-Type: application/json
 
 {
-    "test": "test41235"
+    "title": "Teste 1",
+    "text": "Test Text 1",
+    "recipients": ["teste@teste.com"],
+    "invalidField": "invalid field test"
 }
+
+###
+GET http://localhost:3000/messages
+Content-Type: application/json
+
+###
+GET http://localhost:3000/messages/60ad4618373af5e0734d372e
+Content-Type: application/json
+
