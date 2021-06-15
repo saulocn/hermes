@@ -4,11 +4,17 @@
 			"path": "hermes-api"
 		},
 		{
-			"path": "hermes-consumer"
+			"path": "pulsar"
 		},
 		{
-			"path": "pulsar"
+			"name": "hermes-mailer",
+			"path": "hermes-mailer"
+		},
+		{
+			"path": "hermes-consumer2"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
 }
