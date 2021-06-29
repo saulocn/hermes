@@ -1,6 +1,6 @@
 const db = require('../data/db')
 const ObjectId = require('mongodb').ObjectId;
-const producer = require('../pulsar/MessageProducer')
+const producer = require('../kafka/MessageProducer')
 const COLLECTION_NAME = 'messages'
 
 const sendMessage = async (message) => {

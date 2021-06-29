@@ -6,13 +6,20 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
 
 import br.com.saulocn.hermes.mailer.model.Message;
+import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
+
+import static com.mongodb.client.model.Filters.eq;
 
 @ApplicationScoped
 public class MessageService {
@@ -22,17 +29,10 @@ public class MessageService {
 
 	public List<Message> list(){
 		List<Message> messages = new ArrayList<>();
-		MongoCursor<Document> cursor = getCollection().find().iterator();
-
+		MongoCursor<Message> cursor = getCollection().find().iterator();
 		try{
 			while(cursor.hasNext()){
-				Document document = cursor.next();
-				
-				Message message = new Message();
-				message.setTitle(document.getString("title"));
-				message.setText(document.getString("text"));
-
-				messages.add(message);
+				messages.add(cursor.next());
 			}
 		} finally {
 			cursor.close();
@@ -41,8 +41,12 @@ public class MessageService {
 		return messages;
 	}
 
+	public Message findById(String id) {
+		return (Message) getCollection().find(eq("_id", new ObjectId(id))).first();
+	}
+
 
     private MongoCollection getCollection(){
-        return mongoClient.getDatabase("hermes").getCollection("messages");
+        return mongoClient.getDatabase("hermes").getCollection("messages", Message.class);
     }
 }

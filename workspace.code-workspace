@@ -4,14 +4,11 @@
 			"path": "hermes-api"
 		},
 		{
-			"path": "pulsar"
-		},
-		{
 			"name": "hermes-mailer",
 			"path": "hermes-mailer"
 		},
 		{
-			"path": "hermes-consumer2"
+			"path": "kafka"
 		}
 	],
 	"settings": {

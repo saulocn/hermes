@@ -1,8 +1,20 @@
 package br.com.saulocn.hermes.mailer.model;
 
+import java.util.List;
+
 public class Message {
+    private  String id;
     private String title;
     private String text;
+    private List<String> recipients;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return this.title;
@@ -19,6 +31,23 @@ public class Message {
     public void setText(String text) {
         this.text = text;
     }
-    
 
+    public List<String> getRecipients() {
+        return recipients;
+    }
+
+    public void setRecipients(List<String> recipients) {
+        this.recipients = recipients;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Message{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", title='").append(title).append('\'');
+        sb.append(", text='").append(text).append('\'');
+        sb.append(", recipients=").append(recipients);
+        sb.append('}');
+        return sb.toString();
+    }
 }

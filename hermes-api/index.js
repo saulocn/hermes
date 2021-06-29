@@ -5,7 +5,7 @@ const pack = require('./package')
 const mode = process.env.NODE_ENV || 'dev'
 const config = require(`./config/${mode}.json`)[mode]
 const db = require('./data/db')
-const consumer = require('./pulsar/MessageConsumer').consumer()
+require('./kafka/MessageConsumer')
 
 db.connect()
   .then(() => {
