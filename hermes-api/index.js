@@ -6,6 +6,7 @@ const mode = process.env.NODE_ENV || 'dev'
 const config = require(`./config/${mode}.json`)[mode]
 const db = require('./data/db')
 require('./kafka/MessageConsumer')
+require('./kafka/MailConsumer')
 
 db.connect()
   .then(() => {

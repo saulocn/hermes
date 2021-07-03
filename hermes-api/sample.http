@@ -2,9 +2,9 @@ POST http://localhost:3000/messages
 Content-Type: application/json
 
 {
-    "title": "Teste 1",
-    "text": "Test Text 1",
-    "recipients": ["teste@teste.com"],
+    "title": "Teste 9871212",
+    "text": "Test Text 65",
+    "recipients": ["teste@teste.com","teste2@teste.com"],
     "invalidField": "invalid field test"
 }
 
