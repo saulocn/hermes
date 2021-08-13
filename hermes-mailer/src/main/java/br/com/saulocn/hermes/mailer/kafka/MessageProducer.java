@@ -1,6 +1,7 @@
 package br.com.saulocn.hermes.mailer.kafka;
 
 import br.com.saulocn.hermes.mailer.model.Message;
+import br.com.saulocn.hermes.mailer.service.MailSenderService;
 import br.com.saulocn.hermes.mailer.service.MessageService;
 import org.eclipse.microprofile.reactive.messaging.*;
 
@@ -12,6 +13,9 @@ public class MessageProducer {
 
     @Inject
     private MessageService messageService;
+
+    @Inject
+    private MailSenderService mailSenderService;
 
     @Inject
     @Channel("mailer")
@@ -47,7 +51,9 @@ public class MessageProducer {
     @Incoming("mail-in")
     @Acknowledgment(Acknowledgment.Strategy.POST_PROCESSING)
     public void receiveMail(String jsonMail) {
-        System.out.println("Mail recebida: " + MailVO.fromJSON(jsonMail));
+        MailVO mailVO = MailVO.fromJSON(jsonMail);
+        System.out.println("Mail recebida: " + mailVO);
+        mailSenderService.sendMail(mailVO);
     }
 
 

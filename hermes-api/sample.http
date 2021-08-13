@@ -4,7 +4,7 @@ Content-Type: application/json
 {
     "title": "Teste 9871212",
     "text": "Test Text 65",
-    "recipients": ["teste@teste.com","teste2@teste.com"],
+    "recipients": ["cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com"],
     "invalidField": "invalid field test"
 }
 
