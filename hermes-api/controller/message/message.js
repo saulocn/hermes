@@ -7,7 +7,7 @@ module.exports = (app) => {
     .route('/')
     .post(async (req, res) => {
       try {
-        const message = pluck(req.body, 'title', 'text', 'recipients')
+        const message = pluck(req.body, 'title', 'text', 'recipients', 'content-type')
         await service.sendMessage(message)
         res.status(202).json(message)
       } catch (err) {

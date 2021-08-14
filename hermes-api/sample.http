@@ -2,9 +2,10 @@ POST http://localhost:3000/messages
 Content-Type: application/json
 
 {
-    "title": "Teste 9871212",
-    "text": "Test Text 65",
-    "recipients": ["cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com","cepegat509@5ubo.com"],
+    "title": "Teste 123",
+    "text": "<p>Here is an image for you: <img src=\"https://picsum.photos/200/300?random=1\"><p>Regards</p>",
+    "content-type": "test",
+    "recipients": ["fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com","fiwahag691@cfcjy.com"],
     "invalidField": "invalid field test"
 }
 

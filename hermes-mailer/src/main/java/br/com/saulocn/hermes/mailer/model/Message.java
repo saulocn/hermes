@@ -3,9 +3,10 @@ package br.com.saulocn.hermes.mailer.model;
 import java.util.List;
 
 public class Message {
-    private  String id;
+    private String id;
     private String title;
     private String text;
+    private String contentType;
     private List<String> recipients;
 
     public String getId() {
@@ -40,12 +41,21 @@ public class Message {
         this.recipients = recipients;
     }
 
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Message{");
         sb.append("id='").append(id).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", text='").append(text).append('\'');
+        sb.append(", contentType='").append(contentType).append('\'');
         sb.append(", recipients=").append(recipients);
         sb.append('}');
         return sb.toString();

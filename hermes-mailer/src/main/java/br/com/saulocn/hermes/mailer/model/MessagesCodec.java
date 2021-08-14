@@ -46,6 +46,7 @@ public class MessagesCodec implements CollectibleCodec<Message> {
         }
         List<String> list = document.getList("recipients", String.class);
         message.setRecipients(list);
+        message.setContentType(document.getString("content-type"));
         message.setText(document.getString("text"));
         message.setTitle(document.getString("title"));
         return message;
