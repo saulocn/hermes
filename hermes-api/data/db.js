@@ -6,7 +6,8 @@ let _db
 const dbUtils = {
   connect () {
     return new Promise((resolve, reject) => {
-      mongoClient.connect(`mongodb://${config.database.host}:${config.database.port}`, { useUnifiedTopology: true })
+      console.log(">>>>>>>"+mode)
+      mongoClient.connect(`mongodb://${config.database.user}:${config.database.password}@${config.database.host}:${config.database.port}`, { useUnifiedTopology: true })
         .then(con => {
           _db = con.db('hermes')
           resolve()

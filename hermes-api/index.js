@@ -19,7 +19,7 @@ db.connect()
 
     app.listen(config.port, () => {
       console.log(chalk.yellow('.......................................'))
-      console.log(chalk.green(config.name))
+      console.log(chalk.green(mode))
       console.log(chalk.green(`Port:\t\t${config.port}`))
       console.log(chalk.green(`Mode:\t\t${config.mode}`))
       console.log(chalk.green(`App version:\t${pack.version}`))

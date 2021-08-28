@@ -1,5 +1,5 @@
 {
-    "dev": {
+    "dev-compose": {
       "name": "Hermes API",
       "port": 3000,
       "mode": "development",
@@ -7,7 +7,7 @@
       "serverUrl": "localhost",
       "serverUrlWebUrlLink": "localhost:3000/",
       "database": {
-        "host": "localhost",
+        "host": "db",
         "port": "27017",
         "user": "root",
         "password": "testdocker",

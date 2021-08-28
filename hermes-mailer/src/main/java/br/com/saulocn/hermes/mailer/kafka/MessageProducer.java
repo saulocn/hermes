@@ -26,14 +26,13 @@ public class MessageProducer {
     @Inject
     ReactiveMailer reactiveMailer;
     @Inject
-    private MessageService messageService;
-
-    @Inject
-    private MailSenderService mailSenderService;
-
-    @Inject
     @Channel("mailer")
+    @OnOverflow(value = OnOverflow.Strategy.BUFFER, bufferSize = 10000)
     Emitter<MailVO> emitter;
+    @Inject
+    MessageService messageService;
+    @Inject
+    MailSenderService mailSenderService;
 
     @Incoming("init")
     @Outgoing("messages-out")
@@ -49,10 +48,10 @@ public class MessageProducer {
     }
 
     @Incoming("messages-in")
+    @Blocking(value = "message-sender-pool")
     @Acknowledgment(Acknowledgment.Strategy.POST_PROCESSING)
     public void receiveMessage(String incomingMessage) {
         Message message = messageService.findById(incomingMessage);
-        System.out.println("Mensagem recebida: " + message);
         message.getRecipients().forEach(
                 recipient -> emitter.send(
                         MailVO.of(message.getTitle(),
@@ -63,13 +62,10 @@ public class MessageProducer {
     }
 
     @Incoming("mail-in")
-    @Blocking
+    @Blocking(value = "mail-sender-pool")
     @Acknowledgment(Acknowledgment.Strategy.POST_PROCESSING)
-    public CompletableFuture<Void> receiveMail(org.eclipse.microprofile.reactive.messaging.Message<String> jsonMail) {
+    public CompletableFuture<Void> receiveMail(org.eclipse.microprofile.reactive.messaging.Message<String> jsonMail) throws InterruptedException {
         MailVO mailVO = MailVO.fromJSON(jsonMail.getPayload());
-        System.out.println("Mail recebida: " + mailVO.toJSON());
-
-        System.out.println("Sending email:" + mailVO);
         UniSubscribe<Void> subscribe = reactiveMailer
                 .send(Mail.withHtml(mailFrom, mailVO.getSubject(), mailVO.getText())
                         .addTo(mailVO.getTo())

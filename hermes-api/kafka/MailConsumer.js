@@ -1,7 +1,8 @@
-const kafka = require('kafka-node'),
-Consumer = kafka.Consumer,
-client = new kafka.KafkaClient(),
-consumer = new Consumer( client, 
+const kafka = require('kafka-node')
+const client = new kafka.KafkaClient({kafkaHost: 'kafka:29092'})
+Consumer = kafka.Consumer
+
+const consumer = new Consumer( client, 
     [{ topic: 'mail', partition: 0 }], 
     {autoCommit: false, groupId:"node-mail-consumer"}
     )
